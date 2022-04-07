@@ -60,7 +60,14 @@ struct ComicView: View {
                 Spacer()
                 
                 Button {
-                    print("next")
+                    api.nextComic { result in
+                        switch result {
+                        case .success(let comic):
+                            self.comic = comic
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
                 } label: {}.buttonStyle(IconStyle(imageName: "arrowshape.turn.up.right.fill", foreground: .nextColor, width: 35, height: 25))
 
             }
@@ -79,6 +86,7 @@ struct ComicView: View {
             }
         }
     }
+ 
 }
 
 

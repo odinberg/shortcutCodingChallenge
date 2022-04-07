@@ -46,4 +46,12 @@ class ApiManager {
         }
         .resume()
     }
+    
+    //For the green arrow in ComicView. Takes user to the next comic by adding + 1 to the comicNumber.
+    
+    func nextComic(completion: @escaping (Result<Comic,Error>) -> ()) {
+        comicNumber += 1
+        getComic(completion: completion)
+    }
+    
 }

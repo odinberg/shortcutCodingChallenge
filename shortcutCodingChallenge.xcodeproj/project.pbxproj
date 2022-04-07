@@ -67,6 +67,7 @@
 				C815A2C827FEC8CB000A9F4A /* ViewModel */,
 				C815A2C727FEC8BF000A9F4A /* Models */,
 				C815A2B927FEC82C000A9F4A /* shortcutCodingChallengeApp.swift */,
+				C815A2CC27FECBCD000A9F4A /* ApiManager.swift */,
 				C815A2BD27FEC82E000A9F4A /* Assets.xcassets */,
 				C815A2D627FF1E7B000A9F4A /* Colors.swift */,
 				C815A2BF27FEC82E000A9F4A /* Preview Content */,
@@ -86,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				C815A2CA27FECA5B000A9F4A /* Comic.swift */,
-				C815A2CC27FECBCD000A9F4A /* ApiManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
