@@ -11,6 +11,7 @@ struct ComicBasicView: View {
     
     var comic: Comic?
     
+    // Container displayed in ComicView
     var body: some View {
         VStack{
             Text(comic?.title ?? "Title")

@@ -17,16 +17,22 @@ struct ComicView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Button {
+                    print("favorit")
+                } label: {}.buttonStyle(IconStyle(imageName: "star.fill", foreground: .yellow, width: 30, height: 30))
+                Spacer()
+                Button{
+                    print("Share")
+                } label: {}.buttonStyle(IconStyle(imageName: "envelope", foreground: .blue, width: 30, height: 25))
+            }
+            .padding(.horizontal)
             // View for image, title and number
             ComicBasicView(comic: comic)
             //Button for showing the sheet
             Button {
                 showSheet.toggle()
-            } label: {
-                Image(systemName: "info.circle")
-                    .resizable()
-                    .frame(width: 25, height: 25)
-            }
+            } label: {}.buttonStyle(IconStyle(imageName: "info.circle", foreground: .blue, width: 25, height: 25))
             .sheet(isPresented: $showSheet) {
                 DetailsSheetView(comic: comic!)
             }
@@ -35,10 +41,9 @@ struct ComicView: View {
             //Hstack for next and previous comic, want to add one for -10 and +10 too
             HStack {
                 
-
                 Button {
                     print("prev")
-                } label: {}.buttonStyle(PrevAndNextStyle(imageName: "arrow.left", foreground: .prevColor))
+                } label: {}.buttonStyle(IconStyle(imageName: "arrowshape.turn.up.left.fill", foreground: .prevColor, width: 35, height: 25))
                 
                 Spacer()
 
@@ -56,7 +61,7 @@ struct ComicView: View {
                 
                 Button {
                     print("next")
-                } label: {}.buttonStyle(PrevAndNextStyle(imageName: "arrow.right", foreground: .nextColor))
+                } label: {}.buttonStyle(IconStyle(imageName: "arrowshape.turn.up.right.fill", foreground: .nextColor, width: 35, height: 25))
 
             }
             .padding()
@@ -72,7 +77,6 @@ struct ComicView: View {
                     print(error)
                 }
             }
-            
         }
     }
 }

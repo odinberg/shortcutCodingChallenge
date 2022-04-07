@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Colors for buttons
 extension Color {
     static let nextColor = Color("nextColor")
     static let prevColor = Color("prevColor")
