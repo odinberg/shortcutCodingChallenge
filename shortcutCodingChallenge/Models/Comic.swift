@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+//Model for comic
 struct Comic: Codable {
     var month: String
     var num: Int16
