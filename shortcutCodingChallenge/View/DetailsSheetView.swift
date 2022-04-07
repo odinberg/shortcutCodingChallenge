@@ -31,6 +31,11 @@ struct DetailsSheetView: View {
                 //Link to explenation
                 Link(destination: URL(string: "https://www.explainxkcd.com/wiki/index.php/\(comic.num)")!) {
                     Text("Explenation")
+                        .padding(10)
+                        .background(.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                        .shadow(radius: 10)
                 }
             }
             .padding(.vertical)

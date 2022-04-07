@@ -14,7 +14,7 @@ struct ComicBasicView: View {
     var body: some View {
         VStack{
             Text(comic?.title ?? "Title")
-            .padding()
+                .font(.title)
         
             AsyncImage(url: URL(string: comic?.img ?? "Image")) { image in
             image
@@ -26,6 +26,7 @@ struct ComicBasicView: View {
         .padding()
         
             Text("#\(comic?.num ?? 0)")
+                .font(.title3)
         }
     }
 }

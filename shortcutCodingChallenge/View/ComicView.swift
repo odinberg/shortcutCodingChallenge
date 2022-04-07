@@ -34,19 +34,30 @@ struct ComicView: View {
             
             //Hstack for next and previous comic, want to add one for -10 and +10 too
             HStack {
+                
+
                 Button {
                     print("prev")
-                } label: {
-                    Text("Prev")
-                }
+                } label: {}.buttonStyle(PrevAndNextStyle(imageName: "arrow.left", foreground: .prevColor))
+                
+                Spacer()
+
+                Button {
+                    print("-10")
+                } label: {}.buttonStyle(PlusAndMinusStyle(title: "-10", foreground: .white, background: .prevColor))
+                
+                Spacer()
+                
+                Button {
+                    print("+10")
+                } label: {}.buttonStyle(PlusAndMinusStyle(title: "+10", foreground: .white, background: .nextColor))
                 
                 Spacer()
                 
                 Button {
                     print("next")
-                } label: {
-                    Text("Next")
-                }
+                } label: {}.buttonStyle(PrevAndNextStyle(imageName: "arrow.right", foreground: .nextColor))
+
             }
             .padding()
         }
