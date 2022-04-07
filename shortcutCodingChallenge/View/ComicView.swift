@@ -10,6 +10,7 @@ import SwiftUI
 struct ComicView: View {
     
     @State var comic: Comic?
+    @State var isToggeled = false
     
     //Setting the comicNumber
     var api = ApiManager(comicNumber: 200)
@@ -17,20 +18,16 @@ struct ComicView: View {
     var body: some View {
         VStack{
             
-            Text(comic?.title ?? "title")
-                .padding()
-            
-            AsyncImage(url: URL(string: comic?.img ?? "Image")) { image in
-                image
+            ComicBasicView(comic: comic)
+            Button {
+                print("info")
+            } label: {
+                Image(systemName: "info.circle")
                     .resizable()
-                    .scaledToFit()
-            } placeholder: {
-                Text("Image")
+                    .frame(width: 25, height: 25)
             }
             .padding()
-            
-            Text("#\(comic?.num ?? 0)")
-            
+
             HStack {
                 
                 Button {
