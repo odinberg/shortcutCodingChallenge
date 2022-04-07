@@ -11,7 +11,7 @@ import SwiftUI
 struct shortcutCodingChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ComicView()
         }
     }
 }

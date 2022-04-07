@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		C815A2BA27FEC82C000A9F4A /* shortcutCodingChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2B927FEC82C000A9F4A /* shortcutCodingChallengeApp.swift */; };
-		C815A2BC27FEC82C000A9F4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2BB27FEC82C000A9F4A /* ContentView.swift */; };
+		C815A2BC27FEC82C000A9F4A /* ComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2BB27FEC82C000A9F4A /* ComicView.swift */; };
 		C815A2BE27FEC82E000A9F4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C815A2BD27FEC82E000A9F4A /* Assets.xcassets */; };
 		C815A2C127FEC82E000A9F4A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C815A2C027FEC82E000A9F4A /* Preview Assets.xcassets */; };
+		C815A2CB27FECA5B000A9F4A /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2CA27FECA5B000A9F4A /* Comic.swift */; };
+		C815A2CD27FECBCD000A9F4A /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2CC27FECBCD000A9F4A /* ApiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C815A2B627FEC82C000A9F4A /* shortcutCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shortcutCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C815A2B927FEC82C000A9F4A /* shortcutCodingChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shortcutCodingChallengeApp.swift; sourceTree = "<group>"; };
-		C815A2BB27FEC82C000A9F4A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C815A2BB27FEC82C000A9F4A /* ComicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicView.swift; sourceTree = "<group>"; };
 		C815A2BD27FEC82E000A9F4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C815A2C027FEC82E000A9F4A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C815A2CA27FECA5B000A9F4A /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		C815A2CC27FECBCD000A9F4A /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,10 @@
 		C815A2B827FEC82C000A9F4A /* shortcutCodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				C815A2C927FEC8D5000A9F4A /* View */,
+				C815A2C827FEC8CB000A9F4A /* ViewModel */,
+				C815A2C727FEC8BF000A9F4A /* Models */,
 				C815A2B927FEC82C000A9F4A /* shortcutCodingChallengeApp.swift */,
-				C815A2BB27FEC82C000A9F4A /* ContentView.swift */,
 				C815A2BD27FEC82E000A9F4A /* Assets.xcassets */,
 				C815A2BF27FEC82E000A9F4A /* Preview Content */,
 			);
@@ -65,6 +71,30 @@
 				C815A2C027FEC82E000A9F4A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C815A2C727FEC8BF000A9F4A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C815A2CA27FECA5B000A9F4A /* Comic.swift */,
+				C815A2CC27FECBCD000A9F4A /* ApiManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C815A2C827FEC8CB000A9F4A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C815A2C927FEC8D5000A9F4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C815A2BB27FEC82C000A9F4A /* ComicView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C815A2BC27FEC82C000A9F4A /* ContentView.swift in Sources */,
+				C815A2CD27FECBCD000A9F4A /* ApiManager.swift in Sources */,
+				C815A2BC27FEC82C000A9F4A /* ComicView.swift in Sources */,
+				C815A2CB27FECA5B000A9F4A /* Comic.swift in Sources */,
 				C815A2BA27FEC82C000A9F4A /* shortcutCodingChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
