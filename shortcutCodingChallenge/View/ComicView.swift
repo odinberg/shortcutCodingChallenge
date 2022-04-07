@@ -16,7 +16,37 @@ struct ComicView: View {
     
     var body: some View {
         VStack{
+            
             Text(comic?.title ?? "title")
+                .padding()
+            
+            AsyncImage(url: URL(string: comic?.img ?? "Image")) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+            } placeholder: {
+                Text("Image")
+            }
+            .padding()
+            
+            Text("#\(comic?.num ?? 0)")
+            
+            HStack {
+                
+                Button {
+                    print("prev")
+                } label: {
+                    Text("Prev")
+                }
+                
+                Spacer()
+                
+                Button {
+                    print("next")
+                } label: {
+                    Text("Next")
+                }
+            }
             .padding()
             
         }
