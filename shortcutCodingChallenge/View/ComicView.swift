@@ -16,9 +16,10 @@ struct ComicView: View {
     var api = ApiManager(comicNumber: 200)
     
     var body: some View {
-        VStack{
-            
+        VStack {
+            // View for image, title and number
             ComicBasicView(comic: comic)
+            //Button for showing the sheet
             Button {
                 showSheet.toggle()
             } label: {
@@ -30,9 +31,9 @@ struct ComicView: View {
                 DetailsSheetView(comic: comic!)
             }
             .padding()
-
+            
+            //Hstack for next and previous comic, want to add one for -10 and +10 too
             HStack {
-                
                 Button {
                     print("prev")
                 } label: {
@@ -48,8 +49,8 @@ struct ComicView: View {
                 }
             }
             .padding()
-            
         }
+        
         //When the view is appears, it calls the getComic function
         .onAppear{
             api.getComic { result in

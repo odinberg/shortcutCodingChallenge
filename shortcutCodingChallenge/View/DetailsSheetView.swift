@@ -14,29 +14,43 @@ struct DetailsSheetView: View {
     //Sheet for displaying the information about the comic
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
+                
+                //Dismiss the sheet
                 Button {
                     dismiss()
                 } label: {
                     Image(systemName: "x.circle")
                         .resizable()
                         .frame(width: 30, height: 30)
+                        .foregroundColor(.red)
                 }
                 Spacer()
-            }.padding()
+                
+                //Link to explenation
+                Link(destination: URL(string: "https://www.explainxkcd.com/wiki/index.php/\(comic.num)")!) {
+                    Text("Explenation")
+                }
+            }
+            .padding(.vertical)
             
+            //Comic data
             HStack {
                 Text(comic.title)
+                    .font(.title)
                 Spacer()
                 Text("Posted: \(comic.day).\(comic.month).\(comic.year)")
-                
+                    .font(.title2)
             }
-            .padding()
+            .padding(.vertical)
+            Text(comic.alt)
+                .font(.title3)
             
+            ScrollView {
             Text(comic.transcript)
-            
-        }
+            }
+        }.padding()
 
     }
 }
