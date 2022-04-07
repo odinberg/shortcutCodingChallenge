@@ -18,4 +18,5 @@ struct Comic: Codable {
     var img: String
     var title: String
     var day: String
+    var year: String
 }
