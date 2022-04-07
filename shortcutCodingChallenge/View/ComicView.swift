@@ -38,7 +38,7 @@ struct ComicView: View {
             }
             .padding()
             
-            //Hstack for next and previous comic, want to add one for -10 and +10 too
+            //Hstack for next, previous and +10/-10 comic
             HStack {
                 
                 Button {
