@@ -22,7 +22,7 @@ struct ComicBasicView: View {
                 .resizable()
                 .scaledToFit()
         } placeholder: {
-            Text("Image")
+            Placeholder()
         }
         .padding()
         

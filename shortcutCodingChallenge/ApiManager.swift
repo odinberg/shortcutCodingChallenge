@@ -54,4 +54,19 @@ class ApiManager {
         getComic(completion: completion)
     }
     
+    // For the red arrow in ComicView. Dose the same as the function over but substracts 1 from the comicNumber
+    func prevComic(completion: @escaping (Result<Comic, Error>) -> ()) {
+        comicNumber -= 1
+        getComic(completion: completion)
+    }
+    // skips ten comics
+    func skipTen(completion: @escaping (Result<Comic, Error>) -> ()) {
+        comicNumber += 10
+        getComic(completion: completion)
+    }
+    //goes back ten comics
+    func goBackTen(completion: @escaping (Result<Comic, Error>) -> ()) {
+        comicNumber -= 10
+        getComic(completion: completion)
+    }
 }

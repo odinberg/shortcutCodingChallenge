@@ -40,25 +40,47 @@ struct ComicView: View {
             
             //Hstack for next, previous and +10/-10 comic
             HStack {
-                
+                //Goes to the previous comic
                 Button {
-                    print("prev")
+                    api.prevComic { result in
+                        switch result {
+                        case .success(let comic):
+                            self.comic = comic
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
                 } label: {}.buttonStyle(IconStyle(imageName: "arrowshape.turn.up.left.fill", foreground: .prevColor, width: 35, height: 25))
                 
                 Spacer()
-
+                
+                //Button that goes back ten comics
                 Button {
-                    print("-10")
+                    api.goBackTen { result in
+                        switch result {
+                        case .success(let comic):
+                            self.comic = comic
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
                 } label: {}.buttonStyle(PlusAndMinusStyle(title: "-10", foreground: .white, background: .prevColor))
                 
                 Spacer()
-                
+                //Button that skips ten comics
                 Button {
-                    print("+10")
+                    api.skipTen { result in
+                        switch result {
+                        case .success(let comic):
+                            self.comic = comic
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
                 } label: {}.buttonStyle(PlusAndMinusStyle(title: "+10", foreground: .white, background: .nextColor))
                 
                 Spacer()
-                
+                // Goes to the next comic
                 Button {
                     api.nextComic { result in
                         switch result {
@@ -71,6 +93,7 @@ struct ComicView: View {
                 } label: {}.buttonStyle(IconStyle(imageName: "arrowshape.turn.up.right.fill", foreground: .nextColor, width: 35, height: 25))
 
             }
+            .offset(y: 10)
             .padding()
         }
         
@@ -86,6 +109,7 @@ struct ComicView: View {
             }
         }
     }
+    
  
 }
 
