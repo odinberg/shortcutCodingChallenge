@@ -32,6 +32,7 @@ struct DetailsSheetView: View {
                 Text("Posted: \(comic.day).\(comic.month).\(comic.year)")
                 
             }
+            .padding()
             
             Text(comic.transcript)
             

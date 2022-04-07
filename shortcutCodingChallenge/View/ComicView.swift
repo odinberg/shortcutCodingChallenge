@@ -10,7 +10,7 @@ import SwiftUI
 struct ComicView: View {
     
     @State var comic: Comic?
-    @State var isToggeled = false
+    @State var showSheet = false
     
     //Setting the comicNumber
     var api = ApiManager(comicNumber: 200)
@@ -20,11 +20,14 @@ struct ComicView: View {
             
             ComicBasicView(comic: comic)
             Button {
-                print("info")
+                showSheet.toggle()
             } label: {
                 Image(systemName: "info.circle")
                     .resizable()
                     .frame(width: 25, height: 25)
+            }
+            .sheet(isPresented: $showSheet) {
+                DetailsSheetView(comic: comic!)
             }
             .padding()
 
