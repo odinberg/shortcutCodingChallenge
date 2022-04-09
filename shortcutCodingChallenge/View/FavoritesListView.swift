@@ -12,12 +12,17 @@ struct FavoritesListView: View {
     @StateObject var vm = DataController()
     var body: some View {
         VStack{
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            
+            List {
+                ForEach(vm.savedEntities) { entitiy in
+                    VStack{
+                    Text(entitiy.title ?? "Title")
+                    }
+                }
+            }
         }
-//        .onAppear{
-//            vm.fetchComics()
-//        }
+        .onAppear{
+            vm.fetchComics()
+        }
     }
 }
 

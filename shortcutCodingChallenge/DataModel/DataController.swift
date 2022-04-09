@@ -39,11 +39,18 @@ class DataController: ObservableObject {
     }
     //Function for saving the data. Gonna use this when a new comic is added to core data
     func saveData() {
-        
+        do {
+            try container.viewContext.save()
+        } catch let error {
+            print("Error saving data \(error)")
+        }
     }
     //Function for adding the comic with title, img, description etc.
-    func addComic() {
+    func addComic(title: String, num: Int16) {
+        let newComic = ComicEntity(context: container.viewContext)
         
+        newComic.title = title
+        newComic.num = num
+        saveData()
     }
-    
 }
