@@ -46,11 +46,15 @@ class DataController: ObservableObject {
         }
     }
     //Function for adding the comic with title, img, description etc.
-    func addComic(title: String, num: Int16) {
+    func addComic(title: String, num: Int16, alt: String, day: String, img: String, link: String, month: String, news: String, safe_title: String, transript: String, year: String) {
         let newComic = ComicEntity(context: container.viewContext)
         
         newComic.title = title
         newComic.num = num
         saveData()
+    }
+    //Function for deleting a comic in core data
+    func deleteComic() {
+        
     }
 }

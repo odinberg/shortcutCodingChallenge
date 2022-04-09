@@ -24,7 +24,7 @@ struct ComicView: View {
                 } label: {}.buttonStyle(IconStyle(imageName: "envelope", foreground: .blue, width: 30, height: 25))
                 Spacer()
                 Button {
-                    vm.addComic(title: comic?.title ?? "Title", num: comic?.num ?? 0)
+                    vm.addComic(title: comic?.title ?? "Title", num: comic?.num ?? 0, alt: comic?.alt ?? "Alt", day: comic?.day ?? "day", img: comic?.img ?? "image", link: comic?.link ?? "Link", month: comic?.month ?? "month", news: comic?.news ?? "news", safe_title: comic?.safe_title ?? "Safe title", transript: comic?.transcript ?? "transcript", year: comic?.year ?? "year" )
                 } label: {}.buttonStyle(IconStyle(imageName: "star.fill", foreground: .yellow, width: 30, height: 30))
             }
             .padding(.horizontal)
