@@ -20,6 +20,7 @@
 		C815A2D927FF608E000A9F4A /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2D827FF608E000A9F4A /* Placeholder.swift */; };
 		C815A2DD2801793E000A9F4A /* ComicModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C815A2DB2801793E000A9F4A /* ComicModel.xcdatamodeld */; };
 		C815A2DF28017979000A9F4A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2DE28017979000A9F4A /* DataController.swift */; };
+		C815A2E1280190B7000A9F4A /* FavoritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2E0280190B7000A9F4A /* FavoritesListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		C815A2D827FF608E000A9F4A /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		C815A2DC2801793E000A9F4A /* ComicModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ComicModel.xcdatamodel; sourceTree = "<group>"; };
 		C815A2DE28017979000A9F4A /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		C815A2E0280190B7000A9F4A /* FavoritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,9 +74,9 @@
 				C815A2C927FEC8D5000A9F4A /* View */,
 				C815A2C827FEC8CB000A9F4A /* ViewModel */,
 				C815A2C727FEC8BF000A9F4A /* Models */,
-				C815A2B927FEC82C000A9F4A /* shortcutCodingChallengeApp.swift */,
 				C815A2CC27FECBCD000A9F4A /* ApiManager.swift */,
 				C815A2D627FF1E7B000A9F4A /* Colors.swift */,
+				C815A2B927FEC82C000A9F4A /* shortcutCodingChallengeApp.swift */,
 				C815A2DA280178F9000A9F4A /* DataModel */,
 				C815A2BD27FEC82E000A9F4A /* Assets.xcassets */,
 				C815A2BF27FEC82E000A9F4A /* Preview Content */,
@@ -113,6 +115,7 @@
 				C815A2D427FF13F4000A9F4A /* Buttons.swift */,
 				C815A2D027FEF113000A9F4A /* ComicBasicView.swift */,
 				C815A2D827FF608E000A9F4A /* Placeholder.swift */,
+				C815A2E0280190B7000A9F4A /* FavoritesListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				C815A2DF28017979000A9F4A /* DataController.swift in Sources */,
 				C815A2CB27FECA5B000A9F4A /* Comic.swift in Sources */,
 				C815A2BA27FEC82C000A9F4A /* shortcutCodingChallengeApp.swift in Sources */,
+				C815A2E1280190B7000A9F4A /* FavoritesListView.swift in Sources */,
 				C815A2DD2801793E000A9F4A /* ComicModel.xcdatamodeld in Sources */,
 				C815A2D127FEF114000A9F4A /* ComicBasicView.swift in Sources */,
 				C815A2D927FF608E000A9F4A /* Placeholder.swift in Sources */,

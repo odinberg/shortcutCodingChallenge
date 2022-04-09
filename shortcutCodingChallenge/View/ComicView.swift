@@ -11,6 +11,7 @@ struct ComicView: View {
     
     @State var comic: Comic?
     @State var showSheet = false
+    @StateObject var vm = DataController()
     
     //Setting the comicNumber
     var api = ApiManager(comicNumber: 200)
@@ -18,13 +19,13 @@ struct ComicView: View {
     var body: some View {
         VStack {
             HStack {
-                Button {
-                    print("favorit")
-                } label: {}.buttonStyle(IconStyle(imageName: "star.fill", foreground: .yellow, width: 30, height: 30))
-                Spacer()
                 Button{
                     print("Share")
                 } label: {}.buttonStyle(IconStyle(imageName: "envelope", foreground: .blue, width: 30, height: 25))
+                Spacer()
+                Button {
+                    print("favorit")
+                } label: {}.buttonStyle(IconStyle(imageName: "star.fill", foreground: .yellow, width: 30, height: 30))
             }
             .padding(.horizontal)
             // View for image, title and number
@@ -33,10 +34,10 @@ struct ComicView: View {
             Button {
                 showSheet.toggle()
             } label: {}.buttonStyle(IconStyle(imageName: "info.circle", foreground: .blue, width: 25, height: 25))
-            .sheet(isPresented: $showSheet) {
-                DetailsSheetView(comic: comic!)
-            }
-            .padding()
+                .sheet(isPresented: $showSheet) {
+                    DetailsSheetView(comic: comic!)
+                }
+                .padding()
             
             //Hstack for next, previous and +10/-10 comic
             HStack {
@@ -67,6 +68,7 @@ struct ComicView: View {
                 } label: {}.buttonStyle(PlusAndMinusStyle(title: "-10", foreground: .white, background: .prevColor))
                 
                 Spacer()
+                
                 //Button that skips ten comics
                 Button {
                     api.skipTen { result in
@@ -80,6 +82,7 @@ struct ComicView: View {
                 } label: {}.buttonStyle(PlusAndMinusStyle(title: "+10", foreground: .white, background: .nextColor))
                 
                 Spacer()
+                
                 // Goes to the next comic
                 Button {
                     api.nextComic { result in
@@ -91,7 +94,7 @@ struct ComicView: View {
                         }
                     }
                 } label: {}.buttonStyle(IconStyle(imageName: "arrowshape.turn.up.right.fill", foreground: .nextColor, width: 35, height: 25))
-
+                
             }
             .offset(y: 10)
             .padding()
@@ -109,8 +112,6 @@ struct ComicView: View {
             }
         }
     }
-    
- 
 }
 
 

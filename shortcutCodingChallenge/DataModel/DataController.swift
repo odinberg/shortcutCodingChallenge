@@ -28,7 +28,14 @@ class DataController: ObservableObject {
     
     //Function for fetching the comics
     func fetchComics() {
-        
+        //Requesting the data from the persistent store
+        let request = NSFetchRequest<ComicEntity>(entityName: "ComicEntity")
+        do {
+            savedEntities = try container.viewContext.fetch(request)
+            print("Fetch successful")
+        } catch let error {
+            print("Error fetching \(error)")
+        }
     }
     //Function for saving the data. Gonna use this when a new comic is added to core data
     func saveData() {
