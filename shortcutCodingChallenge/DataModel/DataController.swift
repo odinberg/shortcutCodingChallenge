@@ -8,12 +8,35 @@
 import Foundation
 import CoreData
 
+//This is for handling the core data
 class DataController: ObservableObject {
     
     let container: NSPersistentContainer
+    // Published on savedentities so other views have access to it
     @Published var savedEntities: [ComicEntity] = []
     
     init() {
+        // Linking the container to the DataModel
+        container = NSPersistentContainer(name: "ComicModel")
+        container.loadPersistentStores { description, error in
+            if let error = error {
+                print("Error loading core data \(error)")
+            }
+        }
+        fetchComics()
+    }
+    
+    //Function for fetching the comics
+    func fetchComics() {
         
     }
+    //Function for saving the data. Gonna use this when a new comic is added to core data
+    func saveData() {
+        
+    }
+    //Function for adding the comic with title, img, description etc.
+    func addComic() {
+        
+    }
+    
 }
