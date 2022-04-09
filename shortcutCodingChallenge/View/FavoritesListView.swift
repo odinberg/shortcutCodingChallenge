@@ -11,11 +11,21 @@ struct FavoritesListView: View {
     
     @ObservedObject var vm = DataController()
     var body: some View {
-        VStack{
-            List {
-                ForEach(vm.savedEntities, id: \.num) { entitiy in
-                    VStack{
-                    Text(entitiy.title ?? "Title")
+        NavigationView{
+            VStack{
+                if vm.savedEntities.isEmpty {
+                    Text("No favorites, add some in comics")
+                        .font(.largeTitle)
+                } else {
+                    List {
+                        ForEach(vm.savedEntities, id: \.num) { entitiy in
+                            NavigationLink(destination: Text("Favorite")) {
+                                VStack {
+                                    Text(entitiy.title ?? "Title")
+                                }
+                            }
+                        }
+                        .onDelete(perform: vm.deleteComic)
                     }
                 }
             }
@@ -26,8 +36,3 @@ struct FavoritesListView: View {
     }
 }
 
-struct FavoritesListView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoritesListView()
-    }
-}

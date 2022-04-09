@@ -94,7 +94,6 @@ struct ComicView: View {
                         }
                     }
                 } label: {}.buttonStyle(IconStyle(imageName: "arrowshape.turn.up.right.fill", foreground: .nextColor, width: 35, height: 25))
-                
             }
             .offset(y: 10)
             .padding()

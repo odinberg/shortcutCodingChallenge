@@ -51,10 +51,23 @@ class DataController: ObservableObject {
         
         newComic.title = title
         newComic.num = num
+        newComic.alt = alt
+        newComic.day = day
+        newComic.img = img
+        newComic.link = link
+        newComic.month = month
+        newComic.news = news
+        newComic.safe_title = safe_title
+        newComic.transcript = transript
+        newComic.year = year
         saveData()
     }
     //Function for deleting a comic in core data
-    func deleteComic() {
-        
+    func deleteComic(indexSet: IndexSet) {
+        guard let index = indexSet.first else {return}
+        let entity = savedEntities[index]
+        container.viewContext.delete(entity)
+        saveData()
+        fetchComics()
     }
 }
