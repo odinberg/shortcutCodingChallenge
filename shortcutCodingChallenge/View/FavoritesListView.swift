@@ -9,11 +9,11 @@ import SwiftUI
 
 struct FavoritesListView: View {
     
-    @StateObject var vm = DataController()
+    @ObservedObject var vm = DataController()
     var body: some View {
         VStack{
             List {
-                ForEach(vm.savedEntities) { entitiy in
+                ForEach(vm.savedEntities, id: \.num) { entitiy in
                     VStack{
                     Text(entitiy.title ?? "Title")
                     }
