@@ -19,7 +19,7 @@ struct FavoritesListView: View {
                 } else {
                     List {
                         ForEach(vm.savedEntities, id: \.num) { entitiy in
-                            NavigationLink(destination: Text("Favorite")) {
+                            NavigationLink(destination: FavoriteDetailView(comic: entitiy)) {
                                 VStack {
                                     Text(entitiy.title ?? "Title")
                                 }
@@ -29,6 +29,7 @@ struct FavoritesListView: View {
                     }
                 }
             }
+            .navigationBarHidden(true)
         }
         .onAppear{
             vm.fetchComics()

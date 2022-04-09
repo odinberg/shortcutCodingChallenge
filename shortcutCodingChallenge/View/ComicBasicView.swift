@@ -16,18 +16,19 @@ struct ComicBasicView: View {
         VStack{
             Text(comic?.title ?? "Title")
                 .font(.title)
-        
+            Spacer()
             AsyncImage(url: URL(string: comic?.img ?? "Image")) { image in
-            image
-                .resizable()
-                .scaledToFit()
-        } placeholder: {
-            Placeholder()
-        }
-        .padding()
-        
+                image
+                    .resizable()
+                    .scaledToFit()
+            } placeholder: {
+                Placeholder()
+            }
+            .padding()
+            Spacer()
             Text("#\(comic?.num ?? 0)")
                 .font(.title3)
+                .fontWeight(.semibold)
         }
     }
 }
