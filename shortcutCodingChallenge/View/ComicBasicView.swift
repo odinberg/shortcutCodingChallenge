@@ -10,6 +10,7 @@ import SwiftUI
 struct ComicBasicView: View {
     
     var comic: Comic?
+    weak var myImageView: UIImageView!
     
     // Container displayed in ComicView
     var body: some View {
@@ -17,14 +18,15 @@ struct ComicBasicView: View {
             Text(comic?.title ?? "Title")
                 .font(.title)
             Spacer()
-            AsyncImage(url: URL(string: comic?.img ?? "Image")) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-            } placeholder: {
-                Placeholder()
-            }
-            .padding()
+//            AsyncImage(url: URL(string: comic?.img ?? "Image")) { image in
+//                image
+//                    .resizable()
+//                    .scaledToFit()
+//            } placeholder: {
+//                Placeholder()
+//            }
+            URLImageView(url: comic?.img ?? "Hello")
+                .padding()
             Spacer()
             Text("#\(comic?.num ?? 0)")
                 .font(.title3)

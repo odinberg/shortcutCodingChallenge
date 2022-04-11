@@ -28,7 +28,7 @@ class DataController: ObservableObject {
     
     //Function for fetching the comics
     func fetchComics() {
-        //Requesting the data from the persistent store
+        //Requesting the data from the persistent container
         let request = NSFetchRequest<ComicEntity>(entityName: "ComicEntity")
         do {
             savedEntities = try container.viewContext.fetch(request)
@@ -46,7 +46,8 @@ class DataController: ObservableObject {
         }
     }
     //Function for adding the comic with title, img, description etc.
-    func addComic(title: String, num: Int16, alt: String, day: String, img: String, link: String, month: String, news: String, safe_title: String, transript: String, year: String) {
+    func addComic(title: String, num: Int16, alt: String, day: String, img: String, link: String,
+                  month: String, news: String, safe_title: String, transript: String, year: String) {
         let newComic = ComicEntity(context: container.viewContext)
         
         newComic.title = title
@@ -62,6 +63,7 @@ class DataController: ObservableObject {
         newComic.year = year
         saveData()
     }
+    
     //Function for deleting a comic in core data
     func deleteComic(indexSet: IndexSet) {
         guard let index = indexSet.first else {return}
@@ -70,4 +72,15 @@ class DataController: ObservableObject {
         saveData()
         fetchComics()
     }
+    
+    
+//    if self.favorites.contains(product) {
+//        self.favorites.remove(product)
+//    } else {
+//        self.favorites.add(product)
+//    }
+//
+//    func containsComic(_ comic: ComicEntity) -> Bool {
+//        savedEntities.contains(comic.num)
+//    }
 }

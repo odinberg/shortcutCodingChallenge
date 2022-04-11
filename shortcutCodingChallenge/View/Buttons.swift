@@ -23,7 +23,6 @@ struct PlusAndMinusStyle: ButtonStyle {
                 .font(.headline)
                 .padding()
                 .frame(width: 65, height: 33)
-            
         }
         .foregroundColor(.white)
         .background(background)

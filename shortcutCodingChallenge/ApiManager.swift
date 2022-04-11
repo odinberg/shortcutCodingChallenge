@@ -14,7 +14,6 @@ enum ApiError: Error {
 class ApiManager {
     var comicNumber: Int
     
-    
     //Setting init so the comicNumber can be typed in based on what view it´s in
     init(comicNumber: Int) {
         self.comicNumber = comicNumber
