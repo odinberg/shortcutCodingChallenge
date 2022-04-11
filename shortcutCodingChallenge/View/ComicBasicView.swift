@@ -18,13 +18,7 @@ struct ComicBasicView: View {
             Text(comic?.title ?? "Title")
                 .font(.title)
             Spacer()
-//            AsyncImage(url: URL(string: comic?.img ?? "Image")) { image in
-//                image
-//                    .resizable()
-//                    .scaledToFit()
-//            } placeholder: {
-//                Placeholder()
-//            }
+
             URLImageView(url: comic?.img ?? "Hello")
                 .padding()
             Spacer()
