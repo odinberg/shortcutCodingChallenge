@@ -10,24 +10,27 @@ import SwiftUI
 struct ComicBasicView: View {
     
     var comic: Comic?
+    weak var myImageView: UIImageView!
     
     // Container displayed in ComicView
     var body: some View {
         VStack{
             Text(comic?.title ?? "Title")
                 .font(.title)
-        
-            AsyncImage(url: URL(string: comic?.img ?? "Image")) { image in
-            image
-                .resizable()
-                .scaledToFit()
-        } placeholder: {
-            Placeholder()
-        }
-        .padding()
-        
+            Spacer()
+//            AsyncImage(url: URL(string: comic?.img ?? "Image")) { image in
+//                image
+//                    .resizable()
+//                    .scaledToFit()
+//            } placeholder: {
+//                Placeholder()
+//            }
+            URLImageView(url: comic?.img ?? "Hello")
+                .padding()
+            Spacer()
             Text("#\(comic?.num ?? 0)")
                 .font(.title3)
+                .fontWeight(.semibold)
         }
     }
 }
