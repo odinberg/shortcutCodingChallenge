@@ -27,6 +27,10 @@ struct FavoritesListView: View {
                         }
                         .onDelete(perform: vm.deleteComic)
                     }
+                    Spacer()
+                    VStack {
+                        Text("hELLO")
+                    }
                 }
             }
             .navigationBarHidden(true)

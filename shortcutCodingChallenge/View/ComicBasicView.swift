@@ -15,16 +15,25 @@ struct ComicBasicView: View {
     // Container displayed in ComicView
     var body: some View {
         VStack{
-            Text(comic?.title ?? "Title")
-                .font(.title)
-            Spacer()
+            if let comic = comic {
+                Text(comic.title)
+                    .font(.title)
+                Spacer()
 
-            URLImageView(url: comic?.img ?? "Hello")
-                .padding()
-            Spacer()
-            Text("#\(comic?.num ?? 0)")
-                .font(.title3)
-                .fontWeight(.semibold)
+                URLImageView(url: comic.img)
+                    .padding()
+                Spacer()
+                Text("#\(comic.num)")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+            } else {
+                Spacer()
+                Text("Error getting comic")
+                    .font(.largeTitle)
+                Spacer()
+            }
+            
+            
         }
     }
 }

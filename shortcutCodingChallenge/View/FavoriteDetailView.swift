@@ -19,7 +19,7 @@ struct FavoriteDetailView: View {
                     .resizable()
                     .scaledToFit()
             } placeholder: {
-                Placeholder()
+                ProgressView()
             }
         }
         .padding()

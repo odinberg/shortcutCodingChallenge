@@ -23,8 +23,9 @@
 		C815A2E1280190B7000A9F4A /* FavoritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2E0280190B7000A9F4A /* FavoritesListView.swift */; };
 		C815A2E32801A38D000A9F4A /* FavoriteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2E22801A38D000A9F4A /* FavoriteDetailView.swift */; };
 		C815A2E928045172000A9F4A /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2E828045172000A9F4A /* UIImageView.swift */; };
-		C815A2EB280454A5000A9F4A /* URLToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2EA280454A5000A9F4A /* URLToImage.swift */; };
+		C815A2EB280454A5000A9F4A /* UrlToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2EA280454A5000A9F4A /* UrlToImage.swift */; };
 		C815A2ED28045CA1000A9F4A /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2EC28045CA1000A9F4A /* LocalFileManager.swift */; };
+		C815A2EF2805560A000A9F4A /* LocalFileManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2EE2805560A000A9F4A /* LocalFileManagerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +46,9 @@
 		C815A2E0280190B7000A9F4A /* FavoritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListView.swift; sourceTree = "<group>"; };
 		C815A2E22801A38D000A9F4A /* FavoriteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDetailView.swift; sourceTree = "<group>"; };
 		C815A2E828045172000A9F4A /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		C815A2EA280454A5000A9F4A /* URLToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLToImage.swift; sourceTree = "<group>"; };
+		C815A2EA280454A5000A9F4A /* UrlToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlToImage.swift; sourceTree = "<group>"; };
 		C815A2EC28045CA1000A9F4A /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
+		C815A2EE2805560A000A9F4A /* LocalFileManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManagerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,14 +84,12 @@
 				C815A2C927FEC8D5000A9F4A /* View */,
 				C815A2C827FEC8CB000A9F4A /* ViewModel */,
 				C815A2C727FEC8BF000A9F4A /* Models */,
-				C815A2CC27FECBCD000A9F4A /* ApiManager.swift */,
 				C815A2D627FF1E7B000A9F4A /* Colors.swift */,
+				C815A2EA280454A5000A9F4A /* UrlToImage.swift */,
 				C815A2B927FEC82C000A9F4A /* shortcutCodingChallengeApp.swift */,
 				C815A2DA280178F9000A9F4A /* DataModel */,
 				C815A2BD27FEC82E000A9F4A /* Assets.xcassets */,
 				C815A2BF27FEC82E000A9F4A /* Preview Content */,
-				C815A2E828045172000A9F4A /* UIImageView.swift */,
-				C815A2EA280454A5000A9F4A /* URLToImage.swift */,
 			);
 			path = shortcutCodingChallenge;
 			sourceTree = "<group>";
@@ -107,6 +107,7 @@
 			children = (
 				C815A2CA27FECA5B000A9F4A /* Comic.swift */,
 				C815A2EC28045CA1000A9F4A /* LocalFileManager.swift */,
+				C815A2CC27FECBCD000A9F4A /* ApiManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -114,6 +115,7 @@
 		C815A2C827FEC8CB000A9F4A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C815A2EE2805560A000A9F4A /* LocalFileManagerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -127,6 +129,7 @@
 				C815A2D027FEF113000A9F4A /* ComicBasicView.swift */,
 				C815A2D827FF608E000A9F4A /* Placeholder.swift */,
 				C815A2E0280190B7000A9F4A /* FavoritesListView.swift */,
+				C815A2E828045172000A9F4A /* UIImageView.swift */,
 				C815A2E22801A38D000A9F4A /* FavoriteDetailView.swift */,
 			);
 			path = View;
@@ -224,8 +227,9 @@
 				C815A2BA27FEC82C000A9F4A /* shortcutCodingChallengeApp.swift in Sources */,
 				C815A2E1280190B7000A9F4A /* FavoritesListView.swift in Sources */,
 				C815A2DD2801793E000A9F4A /* ComicModel.xcdatamodeld in Sources */,
+				C815A2EF2805560A000A9F4A /* LocalFileManagerViewModel.swift in Sources */,
 				C815A2D127FEF114000A9F4A /* ComicBasicView.swift in Sources */,
-				C815A2EB280454A5000A9F4A /* URLToImage.swift in Sources */,
+				C815A2EB280454A5000A9F4A /* UrlToImage.swift in Sources */,
 				C815A2D927FF608E000A9F4A /* Placeholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

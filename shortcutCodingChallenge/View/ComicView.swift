@@ -11,10 +11,12 @@ struct ComicView: View {
     
     @State var comic: Comic?
     @State var showSheet = false
-    @StateObject var vm = DataController()
+    @StateObject var dc = DataController()
+    @StateObject var fm = LocalFileManagerViewModel()
+    let randomComicNumber = Int.random(in: 1..<2600)
+    var api = ApiManager(comicNumber: 1000)
     
     //Setting the comicNumber
-    var api = ApiManager(comicNumber: 200)
     
     var body: some View {
         VStack { 
@@ -24,7 +26,12 @@ struct ComicView: View {
                 } label: {}.buttonStyle(IconStyle(imageName: "envelope", foreground: .blue, width: 30, height: 25))
                 Spacer()
                 Button {
-                    vm.addComic(title: comic?.title ?? "Title", num: comic?.num ?? 0, alt: comic?.alt ?? "Alt", day: comic?.day ?? "day", img: comic?.img ?? "image", link: comic?.link ?? "Link", month: comic?.month ?? "month", news: comic?.news ?? "news", safe_title: comic?.safe_title ?? "Safe title", transript: comic?.transcript ?? "transcript", year: comic?.year ?? "year" )
+                    fm.saveImage() // Denne skal lagre bildet
+                    
+                    if let comic = comic {
+                        // Under img, skal den lagre path til bildet
+                        dc.addComic(title: comic.title, num: comic.num, alt: comic.alt, day: comic.day, img: comic.img, link: comic.link, month: comic.month, news: comic.news, safe_title: comic.safe_title, transript: comic.transcript, year: comic.year)
+                    }
                     
                 } label: {}.buttonStyle(IconStyle(imageName: "star.fill", foreground: .yellow, width: 30, height: 30))
             }
