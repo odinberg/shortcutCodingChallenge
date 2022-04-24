@@ -10,13 +10,11 @@ import SwiftUI
 struct URLImageView: View {
     
     let url: String
-    let placeholder: String
     
     @ObservedObject var imageloader = URLToImage()
     
-    init(url: String, placeholder: String = "placeholder") {
+    init(url: String) {
         self.url = url
-        self.placeholder = placeholder
         self.imageloader.downloadImage(url: self.url)
     }
     

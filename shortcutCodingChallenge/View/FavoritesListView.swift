@@ -27,14 +27,14 @@ struct FavoritesListView: View {
                         }
                         .onDelete(perform: vm.deleteComic)
                     }
+                    
                     Spacer()
-                    VStack {
-                        Text("hELLO")
-                    }
                 }
             }
-            .navigationBarHidden(true)
+            .navigationBarTitle("Favorites")
         }
+        // So the app looks the same on iPad
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear{
             vm.fetchComics()
         }

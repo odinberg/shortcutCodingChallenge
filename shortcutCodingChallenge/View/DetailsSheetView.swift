@@ -46,7 +46,7 @@ struct DetailsSheetView: View {
                     .font(.title)
                 Spacer()
                 Text("Posted: \(comic.day).\(comic.month).\(comic.year)")
-                    .font(.title2)
+                    .font(.title3)
             }
             .padding(.vertical)
             Text(comic.alt)

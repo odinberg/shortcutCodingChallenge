@@ -10,7 +10,6 @@ import SwiftUI
 struct ComicBasicView: View {
     
     var comic: Comic?
-    weak var myImageView: UIImageView!
     
     // Container displayed in ComicView
     var body: some View {
@@ -21,20 +20,23 @@ struct ComicBasicView: View {
                 Spacer()
 
                 URLImageView(url: comic.img)
+                // pinch to zoom to make comics more readable. NOT my code, look at PinchZoomView for link
+                    .pinchToZoom()
                     .padding()
                 Spacer()
-                Text("#\(comic.num)")
+                Text("# \(comic.num)")
                     .font(.title3)
                     .fontWeight(.semibold)
+                    .zIndex(1)
             } else {
                 Spacer()
-                Text("Error getting comic")
-                    .font(.largeTitle)
+                ProgressView()
                 Spacer()
             }
             
             
-        }
+        }.zIndex(2)
+        
     }
 }
 

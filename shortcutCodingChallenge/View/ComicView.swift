@@ -13,17 +13,15 @@ struct ComicView: View {
     @State var showSheet = false
     @StateObject var dc = DataController()
     @StateObject var fm = LocalFileManagerViewModel()
-    let randomComicNumber = Int.random(in: 1..<2600)
-    var api = ApiManager(comicNumber: 1000)
+    @State var fav = false
+    var api = ApiManager(comicNumber: 1242)
     
     //Setting the comicNumber
     
     var body: some View {
-        VStack { 
+        VStack {
             HStack {
-                Button{
-                        print("Share")
-                } label: {}.buttonStyle(IconStyle(imageName: "envelope", foreground: .blue, width: 30, height: 25))
+                
                 Spacer()
                 Button {
                     fm.saveImage() // Denne skal lagre bildet
@@ -31,28 +29,21 @@ struct ComicView: View {
                     if let comic = comic {
                         // Under img, skal den lagre path til bildet
                         dc.addComic(title: comic.title, num: comic.num, alt: comic.alt, day: comic.day, img: comic.img, link: comic.link, month: comic.month, news: comic.news, safe_title: comic.safe_title, transript: comic.transcript, year: comic.year)
+                        fav.toggle()
                     }
                     
-                } label: {}.buttonStyle(IconStyle(imageName: "star.fill", foreground: .yellow, width: 30, height: 30))
+                } label: {}.buttonStyle(IconStyle(imageName: fav ? "star.fill" : "star", foreground: .yellow, width: 30, height: 30))
             }
-            .padding(.horizontal)
+            .padding()
             // View for image, title and number
             ComicBasicView(comic: comic)
             //Button for showing the sheet
             Spacer()
             VStack {
-                Button {
-                    showSheet.toggle()
-                } label: {}.buttonStyle(IconStyle(imageName: "info.circle", foreground: .blue, width: 25, height: 25))
-                    .sheet(isPresented: $showSheet) {
-                        DetailsSheetView(comic: comic!)
-                    }
-                    .padding()
-                
-                //Hstack for next, previous and +10/-10 comic
                 HStack {
-                    //Goes to the previous comic
                     Button {
+                        //Goes to the previous comic
+
                         api.prevComic { result in
                             switch result {
                             case .success(let comic):
@@ -61,13 +52,45 @@ struct ComicView: View {
                                 print(error)
                             }
                         }
-                    } label: {}.buttonStyle(IconStyle(imageName: "arrowshape.turn.up.left.fill", foreground: .prevColor, width: 35, height: 25))
+                    } label: {}.buttonStyle(IconStyle(imageName: "chevron.backward.square.fill", foreground: .prevColor, width: 35, height: 35))
+                    
+                    Button {
+                        showSheet.toggle()
+                    } label: {}.buttonStyle(IconStyle(imageName: "info.circle", foreground: .blue, width: 30, height: 30))
+                        .sheet(isPresented: $showSheet) {
+                            DetailsSheetView(comic: comic!)
+                        }
+                        .padding()
+                    // Goes to the next comic
+                    Button {
+                        api.nextComic { result in
+                            switch result {
+                            case .success(let comic):
+                                self.comic = comic
+                            case .failure(let error):
+                                print(error)
+                            }
+                        }
+                    } label: {}.buttonStyle(IconStyle(imageName: "chevron.right.square.fill", foreground: .nextColor, width: 35, height: 35))
+                    
+                }
+                //Hstack for +10/-10 comic
+                HStack {
+                    Button {
+                        api.backHundred { result in
+                            switch result {
+                            case .success(let comic):
+                                self.comic = comic
+                            case .failure(let error):
+                                print(error)
+                            }
+                        }
+                    } label: {}.buttonStyle(PlusAndMinusStyle(title: "-100", background: .prevColor))
                     
                     Spacer()
-                    
                     //Button that goes back ten comics
                     Button {
-                        api.goBackTen { result in
+                        api.backTen { result in
                             switch result {
                             case .success(let comic):
                                 self.comic = comic
@@ -78,6 +101,7 @@ struct ComicView: View {
                     } label: {}.buttonStyle(PlusAndMinusStyle(title: "-10", background: .prevColor))
                     
                     Spacer()
+
                     
                     //Button that skips ten comics
                     Button {
@@ -93,9 +117,8 @@ struct ComicView: View {
                     
                     Spacer()
                     
-                    // Goes to the next comic
                     Button {
-                        api.nextComic { result in
+                        api.skipHundred { result in
                             switch result {
                             case .success(let comic):
                                 self.comic = comic
@@ -103,14 +126,15 @@ struct ComicView: View {
                                 print(error)
                             }
                         }
-                    } label: {}.buttonStyle(IconStyle(imageName: "arrowshape.turn.up.right.fill", foreground: .nextColor, width: 35, height: 25))
+                    } label: {}.buttonStyle(PlusAndMinusStyle(title: "+100", background: .nextColor))
                 }
+                .zIndex(1)
             }
             .offset(y: 1)
             .padding()
         }
         
-        //When the view is appears, it calls the getComic function
+        //When the view appears, it calls the getComic function
         .onAppear{
             api.getComic { result in
                 switch result {

@@ -13,16 +13,31 @@ struct FavoriteDetailView: View {
     
     var body: some View {
         VStack{
-        Text("Hello, World!")
-            AsyncImage(url: URL(string: comic.img ?? "Hello")) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-            } placeholder: {
+            if let comic = comic {
+                HStack{
+                Text("Posted: \(comic.day!).\(comic.month!).\(comic.year!)")
+                    .fontWeight(.semibold)
+                    Spacer()
+                    Text("# \(comic.num)")
+                        .fontWeight(.semibold)
+                    }
+                URLImageView(url: comic.img!)
+                    .pinchToZoom()
+                    .zIndex(2)
+                ScrollView {
+                Text(comic.transcript!)
+            }
+                Spacer()
+            .navigationTitle(comic.title!)
+            } else {
                 ProgressView()
             }
         }
         .padding()
+        .background(Color("favoritesContainerColor"))
+        
+        
+        
     }
 }
 

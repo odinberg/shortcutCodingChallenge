@@ -17,10 +17,17 @@ struct shortcutCodingChallengeApp: App {
                     .tabItem {
                         Label("Comics", systemImage: "book")
                     }
+
                 FavoritesListView()
                     .tabItem {
-                        Label("Favorites", systemImage: "star")
+                        Text("Favorites")
+                        Image(systemName: "star")
+                            .background(.yellow)
                     }
+            }
+            .accentColor(Color("tabIconColor"))
+            .onAppear() {
+                UITabBar.appearance().backgroundColor = UIColor(.tabColor)
             }
             .environment(\.managedObjectContext, vm.container.viewContext)
             

@@ -64,8 +64,16 @@ class ApiManager {
         getComic(completion: completion)
     }
     //goes back ten comics
-    func goBackTen(completion: @escaping (Result<Comic, Error>) -> ()) {
+    func backTen(completion: @escaping (Result<Comic, Error>) -> ()) {
         comicNumber -= 10
+        getComic(completion: completion)
+    }
+    func skipHundred(completion: @escaping (Result<Comic, Error>) -> ()) {
+        comicNumber += 100
+        getComic(completion: completion)
+    }
+    func backHundred(completion: @escaping (Result<Comic, Error>) -> ()) {
+        comicNumber -= 100
         getComic(completion: completion)
     }
 }

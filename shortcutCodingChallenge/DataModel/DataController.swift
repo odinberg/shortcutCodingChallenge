@@ -73,14 +73,5 @@ class DataController: ObservableObject {
         fetchComics()
     }
     
-    
-//    if self.favorites.contains(product) {
-//        self.favorites.remove(product)
-//    } else {
-//        self.favorites.add(product)
-//    }
-//
-//    func containsComic(_ comic: ComicEntity) -> Bool {
-//        savedEntities.contains(comic.num)
-//    }
+
 }

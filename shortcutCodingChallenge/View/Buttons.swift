@@ -14,7 +14,6 @@ import SwiftUI
 struct PlusAndMinusStyle: ButtonStyle {
     
     let title: String
-
     let background: Color
     
     func makeBody(configuration: Configuration) -> some View {
@@ -22,7 +21,7 @@ struct PlusAndMinusStyle: ButtonStyle {
             Text(title)
                 .font(.headline)
                 .padding()
-                .frame(width: 65, height: 33)
+                .frame(width: 80, height: 40)
         }
         .foregroundColor(.white)
         .background(background)
