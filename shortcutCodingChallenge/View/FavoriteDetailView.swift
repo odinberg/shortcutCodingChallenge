@@ -39,6 +39,7 @@ struct FavoriteDetailView: View {
                 }
                 .padding(.horizontal)
                 .zIndex(2)
+                
                 Link(destination: URL(string: "https://www.explainxkcd.com/wiki/index.php/\(comic.num)")!) {
                     Text("Explenation")
                         .padding(5)
@@ -59,6 +60,7 @@ struct FavoriteDetailView: View {
             } else {
                 ProgressView()
             }
+            
         }.background(Color("favoritesContainerColor"))
     }
 }

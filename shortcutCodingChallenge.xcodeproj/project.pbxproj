@@ -80,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				C815A2B927FEC82C000A9F4A /* shortcutCodingChallengeApp.swift */,
+				C83DF3FF281926790042226F /* ContentView.swift */,
 				C83117E928191C5B008B8E29 /* Custom */,
 				C815A2C827FEC8CB000A9F4A /* ViewModel */,
 				C815A2C927FEC8D5000A9F4A /* View */,
@@ -88,7 +89,6 @@
 				C815A2DA280178F9000A9F4A /* DataModel */,
 				C815A2BD27FEC82E000A9F4A /* Assets.xcassets */,
 				C815A2BF27FEC82E000A9F4A /* Preview Content */,
-				C83DF3FF281926790042226F /* ContentView.swift */,
 			);
 			path = shortcutCodingChallenge;
 			sourceTree = "<group>";

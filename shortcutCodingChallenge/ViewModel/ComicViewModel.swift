@@ -11,11 +11,13 @@ struct ComicViewModel: View {
     
     @State private var comic: Comic?
     @State private var showSheet = false
+    @State private var fav = false
+
     @StateObject var coreData = DataController()
-    @StateObject var fm = LocalFileManagerViewModel()
-    @State var fav = false
-    var api = APIManager(comicNumber: 1242)
+    @StateObject var fileManager = LocalFileManagerViewModel()
     
+    var api = APIManager(comicNumber: Int.random(in: 1..<2612))
+
     //Setting the comicNumber
     
     var body: some View {
@@ -24,6 +26,7 @@ struct ComicViewModel: View {
                 Spacer()
                 Button {
                     if let comic = comic {
+                        fileManager.saveImage()
                         // Under img, skal den lagre path til bildet
                         coreData.addComic(title: comic.title, num: comic.num, alt: comic.alt, day: comic.day, img: comic.img, link: comic.link, month: comic.month, news: comic.news, transript: comic.transcript, year: comic.year)
                         fav.toggle()
@@ -38,8 +41,7 @@ struct ComicViewModel: View {
             Spacer()
             VStack {
                 HStack {
-                    
-                    //Goes to the previous comic
+//                  Goes to the previous comic
                     Button {
                         api.prevComic { result in
                             switch result {
@@ -50,7 +52,9 @@ struct ComicViewModel: View {
                             }
                         }
                     } label: {}
-                        .buttonStyle(IconStyle(imageName: "chevron.backward.square.fill", foreground: .prevColor, width: 35, height: 35))
+                        .disabled(comic?.num == 1 ? true : false)
+                        .buttonStyle(IconStyle(imageName: comic?.num == 1 ? "x.square.fill" : "chevron.backward.square.fill", foreground: comic?.num == 1 ? .red : .prevColor, width: 35, height: 35))
+
                     
                     //Button for toggling sheet
                     Button {
@@ -73,10 +77,12 @@ struct ComicViewModel: View {
                             }
                         }
                     } label: {}
-                        .buttonStyle(IconStyle(imageName: "chevron.right.square.fill", foreground: .nextColor, width: 35, height: 35))
-                }
-                
+                        .disabled(comic?.num == 2612 ? true : false)
+                        .buttonStyle(IconStyle(imageName: comic?.num == 2612 ?  "x.square.fill" : "chevron.forward.square.fill", foreground: comic?.num == 2612 ? .red : .prevColor, width: 35, height: 35))
+                    }
+                  
                 //Hstack for +10/-10 comic
+                
                 HStack {
                     Button {
                         api.backHundred { result in
@@ -88,7 +94,8 @@ struct ComicViewModel: View {
                             }
                         }
                     } label: {}
-                        .buttonStyle(PlusAndMinusStyle(title: "-100", background: .prevColor))
+                        .disabled(comic?.num ?? 101 < 101 ? true : false)
+                        .buttonStyle(PlusAndMinusStyle(title: comic?.num ?? 11 < 101 ? "X" : "-100", background: comic?.num ?? 2 < 101 ? .red : .prevColor))
                     
                     Spacer()
                     
@@ -103,7 +110,8 @@ struct ComicViewModel: View {
                             }
                         }
                     } label: {}
-                        .buttonStyle(PlusAndMinusStyle(title: "-10", background: .prevColor))
+                        .disabled(comic?.num ?? 11 < 11 ? true : false)
+                        .buttonStyle(PlusAndMinusStyle(title: comic?.num ?? 11 < 11 ? "X" : "-10", background: comic?.num ?? 2 < 11 ? .red : .prevColor))
                     
                     Spacer()
                     
@@ -118,7 +126,8 @@ struct ComicViewModel: View {
                             }
                         }
                     } label: {}
-                        .buttonStyle(PlusAndMinusStyle(title: "+10", background: .nextColor))
+                        .disabled(comic?.num ?? 2600 > 2600 ? true : false)
+                        .buttonStyle(PlusAndMinusStyle(title: comic?.num ?? 2600 > 2600 ? "X" : "+10", background: comic?.num ?? 2600 > 2600 ? .red : .nextColor))
                     
                     Spacer()
                     
@@ -133,7 +142,8 @@ struct ComicViewModel: View {
                             }
                         }
                     } label: {}
-                        .buttonStyle(PlusAndMinusStyle(title: "+100", background: .nextColor))
+                        .disabled(comic?.num ?? 2510 > 2510 ? true : false)
+                        .buttonStyle(PlusAndMinusStyle(title: comic?.num ?? 2510 > 2510 ? "X" : "+100", background: comic?.num ?? 2510 > 2510 ? .red : .nextColor))
                 }
                 .zIndex(1)
             }

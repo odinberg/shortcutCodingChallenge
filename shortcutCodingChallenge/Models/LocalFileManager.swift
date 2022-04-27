@@ -12,7 +12,7 @@ import SwiftUI
 // https://www.youtube.com/watch?v=Z9yWdChUDlo
 class LocalFileManager {
     static let instance = LocalFileManager()
-    let folderName = "MyApp_FavortieImages"
+    let folderName = "MyApp_FavoriteImages"
 
     init() {
         createFolderIfNeeded()

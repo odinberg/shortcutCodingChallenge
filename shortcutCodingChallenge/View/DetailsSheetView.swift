@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct DetailsSheetView: View {
+    
     @Environment(\.dismiss) var dismiss
+    
     var comic: Comic
     
     //Sheet for displaying the information about the comic

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @StateObject private var coreData = DataController()
 
     var body: some View {
