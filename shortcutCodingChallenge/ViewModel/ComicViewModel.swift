@@ -7,28 +7,25 @@
 
 import SwiftUI
 
-struct ComicView: View {
+struct ComicViewModel: View {
     
-    @State var comic: Comic?
-    @State var showSheet = false
-    @StateObject var dc = DataController()
+    @State private var comic: Comic?
+    @State private var showSheet = false
+    @StateObject var coreData = DataController()
     @StateObject var fm = LocalFileManagerViewModel()
     @State var fav = false
-    var api = ApiManager(comicNumber: 1242)
+    var api = APIManager(comicNumber: 1242)
     
     //Setting the comicNumber
     
     var body: some View {
         VStack {
             HStack {
-                
                 Spacer()
                 Button {
-                    fm.saveImage() // Denne skal lagre bildet
-                    
                     if let comic = comic {
                         // Under img, skal den lagre path til bildet
-                        dc.addComic(title: comic.title, num: comic.num, alt: comic.alt, day: comic.day, img: comic.img, link: comic.link, month: comic.month, news: comic.news, safe_title: comic.safe_title, transript: comic.transcript, year: comic.year)
+                        coreData.addComic(title: comic.title, num: comic.num, alt: comic.alt, day: comic.day, img: comic.img, link: comic.link, month: comic.month, news: comic.news, transript: comic.transcript, year: comic.year)
                         fav.toggle()
                     }
                     
@@ -37,13 +34,13 @@ struct ComicView: View {
             .padding()
             // View for image, title and number
             ComicBasicView(comic: comic)
-            //Button for showing the sheet
+            
             Spacer()
             VStack {
                 HStack {
+                    
+                    //Goes to the previous comic
                     Button {
-                        //Goes to the previous comic
-
                         api.prevComic { result in
                             switch result {
                             case .success(let comic):
@@ -52,15 +49,19 @@ struct ComicView: View {
                                 print(error)
                             }
                         }
-                    } label: {}.buttonStyle(IconStyle(imageName: "chevron.backward.square.fill", foreground: .prevColor, width: 35, height: 35))
+                    } label: {}
+                        .buttonStyle(IconStyle(imageName: "chevron.backward.square.fill", foreground: .prevColor, width: 35, height: 35))
                     
+                    //Button for toggling sheet
                     Button {
                         showSheet.toggle()
-                    } label: {}.buttonStyle(IconStyle(imageName: "info.circle", foreground: .blue, width: 30, height: 30))
+                    } label: {}
+                        .buttonStyle(IconStyle(imageName: "info.circle", foreground: .blue, width: 30, height: 30))
                         .sheet(isPresented: $showSheet) {
                             DetailsSheetView(comic: comic!)
                         }
                         .padding()
+                    
                     // Goes to the next comic
                     Button {
                         api.nextComic { result in
@@ -68,12 +69,13 @@ struct ComicView: View {
                             case .success(let comic):
                                 self.comic = comic
                             case .failure(let error):
-                                print(error)
+                                print("Error getting comic \(error)")
                             }
                         }
-                    } label: {}.buttonStyle(IconStyle(imageName: "chevron.right.square.fill", foreground: .nextColor, width: 35, height: 35))
-                    
+                    } label: {}
+                        .buttonStyle(IconStyle(imageName: "chevron.right.square.fill", foreground: .nextColor, width: 35, height: 35))
                 }
+                
                 //Hstack for +10/-10 comic
                 HStack {
                     Button {
@@ -85,9 +87,11 @@ struct ComicView: View {
                                 print(error)
                             }
                         }
-                    } label: {}.buttonStyle(PlusAndMinusStyle(title: "-100", background: .prevColor))
+                    } label: {}
+                        .buttonStyle(PlusAndMinusStyle(title: "-100", background: .prevColor))
                     
                     Spacer()
+                    
                     //Button that goes back ten comics
                     Button {
                         api.backTen { result in
@@ -98,10 +102,10 @@ struct ComicView: View {
                                 print(error)
                             }
                         }
-                    } label: {}.buttonStyle(PlusAndMinusStyle(title: "-10", background: .prevColor))
+                    } label: {}
+                        .buttonStyle(PlusAndMinusStyle(title: "-10", background: .prevColor))
                     
                     Spacer()
-
                     
                     //Button that skips ten comics
                     Button {
@@ -113,10 +117,12 @@ struct ComicView: View {
                                 print(error)
                             }
                         }
-                    } label: {}.buttonStyle(PlusAndMinusStyle(title: "+10", background: .nextColor))
+                    } label: {}
+                        .buttonStyle(PlusAndMinusStyle(title: "+10", background: .nextColor))
                     
                     Spacer()
                     
+                    //Button that skips 100 comics
                     Button {
                         api.skipHundred { result in
                             switch result {
@@ -126,7 +132,8 @@ struct ComicView: View {
                                 print(error)
                             }
                         }
-                    } label: {}.buttonStyle(PlusAndMinusStyle(title: "+100", background: .nextColor))
+                    } label: {}
+                        .buttonStyle(PlusAndMinusStyle(title: "+100", background: .nextColor))
                 }
                 .zIndex(1)
             }

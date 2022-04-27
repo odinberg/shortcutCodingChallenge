@@ -11,7 +11,7 @@ struct ComicBasicView: View {
     
     var comic: Comic?
     
-    // Container displayed in ComicView
+    // Container displayed in ComicViewModel
     var body: some View {
         VStack{
             if let comic = comic {
@@ -19,10 +19,17 @@ struct ComicBasicView: View {
                     .font(.title)
                 Spacer()
 
-                URLImageView(url: comic.img)
-                // pinch to zoom to make comics more readable. NOT my code, look at PinchZoomView for link
-                    .pinchToZoom()
+                AsyncImage(url: URL(string: comic.img), content: { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                    // pinch to zoom to make comics more readable. NOT my code, look at PinchZoomView for link
+                        .pinchToZoom()
+                }, placeholder: {
+                    ProgressView()
+                })
                     .padding()
+                    .zIndex(2)
                 Spacer()
                 Text("# \(comic.num)")
                     .font(.title3)

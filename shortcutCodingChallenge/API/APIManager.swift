@@ -11,7 +11,7 @@ enum ApiError: Error {
     case dataIsNil
 }
 
-class ApiManager {
+class APIManager {
     var comicNumber: Int
     
     //Setting init so the comicNumber can be typed in based on what view it´s in

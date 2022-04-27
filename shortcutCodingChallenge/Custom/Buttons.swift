@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-// Made this so there isnt so much code on the buttons in ComicView
+// Made this so there isnt too much code on the buttons in ComicView
 
 // ButtonStyle for plus and minus buttons
 struct PlusAndMinusStyle: ButtonStyle {

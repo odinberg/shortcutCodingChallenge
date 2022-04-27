@@ -12,7 +12,6 @@ struct Comic: Codable {
     var month: String
     var num: Int16
     var link: String
-    var safe_title: String
     var transcript: String
     var alt: String
     var img: String

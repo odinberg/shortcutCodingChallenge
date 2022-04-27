@@ -9,34 +9,37 @@ import SwiftUI
 
 struct FavoritesListView: View {
     
-    @ObservedObject var vm = DataController()
+    @ObservedObject var coreData = DataController()
+    
     var body: some View {
         NavigationView{
             VStack{
-                if vm.savedEntities.isEmpty {
-                    Text("No favorites, add some in comics")
+                
+                if coreData.savedEntities.isEmpty {
+                    Text("No favorites 🥲 \nadd some in comics")
                         .font(.largeTitle)
                 } else {
+                    
                     List {
-                        ForEach(vm.savedEntities, id: \.num) { entitiy in
+                        ForEach(coreData.savedEntities, id: \.num) { entitiy in
                             NavigationLink(destination: FavoriteDetailView(comic: entitiy)) {
                                 VStack {
                                     Text(entitiy.title ?? "Title")
                                 }
                             }
                         }
-                        .onDelete(perform: vm.deleteComic)
+                        .onDelete(perform: coreData.deleteComic)
                     }
-                    
                     Spacer()
                 }
             }
             .navigationBarTitle("Favorites")
         }
+        
         // So the app looks the same on iPad
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear{
-            vm.fetchComics()
+            coreData.fetchComics()
         }
     }
 }

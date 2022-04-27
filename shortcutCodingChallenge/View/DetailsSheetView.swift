@@ -53,10 +53,10 @@ struct DetailsSheetView: View {
                 .font(.title3)
             
             ScrollView {
-            Text(comic.transcript)
+                Text(comic.transcript)
             }
         }.padding()
-
+        
     }
 }
 

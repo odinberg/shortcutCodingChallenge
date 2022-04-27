@@ -13,7 +13,7 @@ struct shortcutCodingChallengeApp: App {
     var body: some Scene {
         WindowGroup {
             TabView{
-                ComicView()
+                ComicViewModel()
                     .tabItem {
                         Label("Comics", systemImage: "book")
                     }
