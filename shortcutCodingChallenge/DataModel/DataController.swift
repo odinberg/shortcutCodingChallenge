@@ -76,5 +76,4 @@ class DataController: ObservableObject {
         saveData()
         fetchComics()
     }
-    
 }

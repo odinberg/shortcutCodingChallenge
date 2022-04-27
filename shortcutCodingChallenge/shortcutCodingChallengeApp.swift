@@ -9,28 +9,10 @@ import SwiftUI
 
 @main
 struct shortcutCodingChallengeApp: App {
-    @StateObject private var vm = DataController()
+    @StateObject private var coreData = DataController()
     var body: some Scene {
         WindowGroup {
-            TabView{
-                ComicViewModel()
-                    .tabItem {
-                        Label("Comics", systemImage: "book")
-                    }
-
-                FavoritesListView()
-                    .tabItem {
-                        Text("Favorites")
-                        Image(systemName: "star")
-                            .background(.yellow)
-                    }
-            }
-            .accentColor(Color("tabIconColor"))
-            .onAppear() {
-                UITabBar.appearance().backgroundColor = UIColor(.tabColor)
-            }
-            .environment(\.managedObjectContext, vm.container.viewContext)
-            
+            ContentView()
         }
     }
 }

@@ -26,6 +26,8 @@ struct FavoriteDetailView: View {
                     Text("# \(comic.num)")
                         .fontWeight(.semibold)
                 }
+                .padding(.horizontal)
+                
                 
                 AsyncImage(url: URL(string: comic.img!)) { image in
                     image
@@ -35,30 +37,29 @@ struct FavoriteDetailView: View {
                 } placeholder: {
                     ProgressView()
                 }
+                .padding(.horizontal)
+                .zIndex(2)
+                Link(destination: URL(string: "https://www.explainxkcd.com/wiki/index.php/\(comic.num)")!) {
+                    Text("Explenation")
+                        .padding(5)
+                        
+                        .background(.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                        .shadow(radius: 10)
+                }
+                .padding(.horizontal)
                 
                 ScrollView {
-                    
                     Text(comic.transcript!)
-                    Link(destination: URL(string: "https://www.explainxkcd.com/wiki/index.php/\(comic.num)")!) {
-                        Text("Explenation")
-                            .padding(10)
-                            .background(.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                            .shadow(radius: 10)
-                    }
-                    .padding()
-                    
                 }
+                .padding(.horizontal)
                 .navigationTitle(comic.title!)
                 
             } else {
                 ProgressView()
             }
-            
-        }
-        .padding()
-        .background(Color("favoritesContainerColor"))
+        }.background(Color("favoritesContainerColor"))
     }
 }
 

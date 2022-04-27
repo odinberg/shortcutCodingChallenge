@@ -24,6 +24,7 @@
 		C815A2ED28045CA1000A9F4A /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2EC28045CA1000A9F4A /* LocalFileManager.swift */; };
 		C815A2EF2805560A000A9F4A /* LocalFileManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815A2EE2805560A000A9F4A /* LocalFileManagerViewModel.swift */; };
 		C839A6B92814102D001E95CE /* PinchZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C839A6B82814102D001E95CE /* PinchZoomView.swift */; };
+		C83DF400281926790042226F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83DF3FF281926790042226F /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		C815A2EC28045CA1000A9F4A /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		C815A2EE2805560A000A9F4A /* LocalFileManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManagerViewModel.swift; sourceTree = "<group>"; };
 		C839A6B82814102D001E95CE /* PinchZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchZoomView.swift; sourceTree = "<group>"; };
+		C83DF3FF281926790042226F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				C815A2DA280178F9000A9F4A /* DataModel */,
 				C815A2BD27FEC82E000A9F4A /* Assets.xcassets */,
 				C815A2BF27FEC82E000A9F4A /* Preview Content */,
+				C83DF3FF281926790042226F /* ContentView.swift */,
 			);
 			path = shortcutCodingChallenge;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				C815A2D527FF13F4000A9F4A /* Buttons.swift in Sources */,
 				C815A2D727FF1E7B000A9F4A /* Colors.swift in Sources */,
+				C83DF400281926790042226F /* ContentView.swift in Sources */,
 				C815A2E32801A38D000A9F4A /* FavoriteDetailView.swift in Sources */,
 				C815A2CD27FECBCD000A9F4A /* APIManager.swift in Sources */,
 				C815A2BC27FEC82C000A9F4A /* ComicViewModel.swift in Sources */,
