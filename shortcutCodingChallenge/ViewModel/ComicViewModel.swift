@@ -15,9 +15,9 @@ struct ComicViewModel: View {
 
     @StateObject var coreData = DataController()
     
+    //Setting the comicNumber random every time
     var api = APIManager(comicNumber: Int.random(in: 1..<2612))
 
-    //Setting the comicNumber
     
     var body: some View {
         VStack {

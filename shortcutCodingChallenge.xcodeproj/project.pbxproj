@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C815A2B627FEC82C000A9F4A /* shortcutCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shortcutCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C815A2B627FEC82C000A9F4A /* Comic Odin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Comic Odin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C815A2B927FEC82C000A9F4A /* shortcutCodingChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shortcutCodingChallengeApp.swift; sourceTree = "<group>"; };
 		C815A2BB27FEC82C000A9F4A /* ComicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicViewModel.swift; sourceTree = "<group>"; };
 		C815A2BD27FEC82E000A9F4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 		C815A2B727FEC82C000A9F4A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C815A2B627FEC82C000A9F4A /* shortcutCodingChallenge.app */,
+				C815A2B627FEC82C000A9F4A /* Comic Odin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,7 +168,7 @@
 			);
 			name = shortcutCodingChallenge;
 			productName = shortcutCodingChallenge;
-			productReference = C815A2B627FEC82C000A9F4A /* shortcutCodingChallenge.app */;
+			productReference = C815A2B627FEC82C000A9F4A /* Comic Odin.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -378,7 +378,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = no.odin.shortcutCodingChallenge;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Comic Odin";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -408,7 +408,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = no.odin.shortcutCodingChallenge;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Comic Odin";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
