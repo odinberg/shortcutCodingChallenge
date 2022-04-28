@@ -25,7 +25,6 @@ struct ComicViewModel: View {
                 Spacer()
                 Button {
                     if let comic = comic {
-                        // Under img, skal den lagre path til bildet
                         coreData.addComic(title: comic.title, num: comic.num, alt: comic.alt, day: comic.day, img: comic.img, link: comic.link, month: comic.month, news: comic.news, transript: comic.transcript, year: comic.year)
                         fav.toggle()
                     }
@@ -45,6 +44,7 @@ struct ComicViewModel: View {
                             switch result {
                             case .success(let comic):
                                 self.comic = comic
+                                fav = false
                             case .failure(let error):
                                 print(error)
                             }
@@ -54,7 +54,7 @@ struct ComicViewModel: View {
                         .buttonStyle(IconStyle(imageName: comic?.num == 1 ? "x.square.fill" : "chevron.backward.square.fill", foreground: comic?.num == 1 ? .red : .prevColor, width: 35, height: 35))
 
                     
-                    //Button for toggling sheet
+                    //Button for toggling sheet with information
                     Button {
                         showSheet.toggle()
                     } label: {}
@@ -70,6 +70,7 @@ struct ComicViewModel: View {
                             switch result {
                             case .success(let comic):
                                 self.comic = comic
+                                fav = false
                             case .failure(let error):
                                 print("Error getting comic \(error)")
                             }
@@ -79,7 +80,7 @@ struct ComicViewModel: View {
                         .buttonStyle(IconStyle(imageName: comic?.num == 2612 ?  "x.square.fill" : "chevron.forward.square.fill", foreground: comic?.num == 2612 ? .red : .prevColor, width: 35, height: 35))
                     }
                   
-                //Hstack for +10/-10 comic
+                //Hstack for +10/-10 +100/-100 comic
                 
                 HStack {
                     Button {
@@ -87,6 +88,7 @@ struct ComicViewModel: View {
                             switch result {
                             case .success(let comic):
                                 self.comic = comic
+                                fav = false
                             case .failure(let error):
                                 print(error)
                             }
@@ -103,6 +105,7 @@ struct ComicViewModel: View {
                             switch result {
                             case .success(let comic):
                                 self.comic = comic
+                                fav = false
                             case .failure(let error):
                                 print(error)
                             }
@@ -119,6 +122,7 @@ struct ComicViewModel: View {
                             switch result {
                             case .success(let comic):
                                 self.comic = comic
+                                fav = false
                             case .failure(let error):
                                 print(error)
                             }
@@ -135,6 +139,7 @@ struct ComicViewModel: View {
                             switch result {
                             case .success(let comic):
                                 self.comic = comic
+                                fav = false
                             case .failure(let error):
                                 print(error)
                             }
