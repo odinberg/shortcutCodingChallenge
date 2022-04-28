@@ -14,7 +14,6 @@ struct ComicViewModel: View {
     @State private var fav = false
 
     @StateObject var coreData = DataController()
-    @StateObject var fileManager = LocalFileManagerViewModel()
     
     var api = APIManager(comicNumber: Int.random(in: 1..<2612))
 
@@ -26,7 +25,6 @@ struct ComicViewModel: View {
                 Spacer()
                 Button {
                     if let comic = comic {
-                        fileManager.saveImage()
                         // Under img, skal den lagre path til bildet
                         coreData.addComic(title: comic.title, num: comic.num, alt: comic.alt, day: comic.day, img: comic.img, link: comic.link, month: comic.month, news: comic.news, transript: comic.transcript, year: comic.year)
                         fav.toggle()
