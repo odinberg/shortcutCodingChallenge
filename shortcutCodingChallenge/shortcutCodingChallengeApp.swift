@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct shortcutCodingChallengeApp: App {
-    @StateObject private var coreData = DataController()
     var body: some Scene {
         WindowGroup {
             ContentView()

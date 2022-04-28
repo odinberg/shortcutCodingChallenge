@@ -11,6 +11,7 @@ struct FavoriteDetailView: View {
     
     @ObservedObject var comic: ComicEntity
     
+    //View for one certain favorite detail
     var body: some View {
         VStack{
             
@@ -39,7 +40,7 @@ struct FavoriteDetailView: View {
                 }
                 .padding(.horizontal)
                 .zIndex(2)
-                
+                // Link to explenation
                 Link(destination: URL(string: "https://www.explainxkcd.com/wiki/index.php/\(comic.num)")!) {
                     Text("Explenation")
                         .padding(5)
