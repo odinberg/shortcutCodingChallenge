@@ -37,6 +37,7 @@ class DataController: ObservableObject {
             print("Error fetching \(error)")
         }
     }
+    
     //Function for saving the data. Gonna use this when a new comic is added to core data
     func saveData() {
         do {
@@ -45,9 +46,11 @@ class DataController: ObservableObject {
             print("Error saving data \(error)")
         }
     }
+    
     //Function for adding the comic with title, img, description etc.
     func addComic(title: String, num: Int16, alt: String, day: String, img: String, link: String,
-                  month: String, news: String, safe_title: String, transript: String, year: String) {
+                  month: String, news: String, transript: String, year: String) {
+        
         let newComic = ComicEntity(context: container.viewContext)
         
         newComic.title = title
@@ -58,9 +61,9 @@ class DataController: ObservableObject {
         newComic.link = link
         newComic.month = month
         newComic.news = news
-        newComic.safe_title = safe_title
         newComic.transcript = transript
         newComic.year = year
+        
         saveData()
     }
     
@@ -69,18 +72,8 @@ class DataController: ObservableObject {
         guard let index = indexSet.first else {return}
         let entity = savedEntities[index]
         container.viewContext.delete(entity)
+        
         saveData()
         fetchComics()
     }
-    
-    
-//    if self.favorites.contains(product) {
-//        self.favorites.remove(product)
-//    } else {
-//        self.favorites.add(product)
-//    }
-//
-//    func containsComic(_ comic: ComicEntity) -> Bool {
-//        savedEntities.contains(comic.num)
-//    }
 }

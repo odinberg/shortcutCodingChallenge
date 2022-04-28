@@ -10,28 +10,40 @@ import SwiftUI
 struct ComicBasicView: View {
     
     var comic: Comic?
-    weak var myImageView: UIImageView!
     
-    // Container displayed in ComicView
+    // Container displayed in ComicViewModel
     var body: some View {
         VStack{
-            Text(comic?.title ?? "Title")
-                .font(.title)
-            Spacer()
-//            AsyncImage(url: URL(string: comic?.img ?? "Image")) { image in
-//                image
-//                    .resizable()
-//                    .scaledToFit()
-//            } placeholder: {
-//                Placeholder()
-//            }
-            URLImageView(url: comic?.img ?? "Hello")
-                .padding()
-            Spacer()
-            Text("#\(comic?.num ?? 0)")
-                .font(.title3)
-                .fontWeight(.semibold)
-        }
+            if let comic = comic {
+                Text(comic.title)
+                    .font(.title)
+                Spacer()
+
+                AsyncImage(url: URL(string: comic.img), content: { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                    // pinch to zoom to make comics more readable. NOT my code, look at PinchZoomView for link
+                        .pinchToZoom()
+                }, placeholder: {
+                    ProgressView()
+                })
+                    .padding()
+                    .zIndex(2)
+                Spacer()
+                Text("# \(comic.num)")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .zIndex(1)
+            } else {
+                Spacer()
+                ProgressView()
+                Spacer()
+            }
+            
+            
+        }.zIndex(2)
+        
     }
 }
 

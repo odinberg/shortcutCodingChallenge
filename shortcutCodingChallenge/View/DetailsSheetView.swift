@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct DetailsSheetView: View {
+    
     @Environment(\.dismiss) var dismiss
+    
     var comic: Comic
     
     //Sheet for displaying the information about the comic
@@ -46,17 +48,17 @@ struct DetailsSheetView: View {
                     .font(.title)
                 Spacer()
                 Text("Posted: \(comic.day).\(comic.month).\(comic.year)")
-                    .font(.title2)
+                    .font(.title3)
             }
             .padding(.vertical)
             Text(comic.alt)
                 .font(.title3)
             
             ScrollView {
-            Text(comic.transcript)
+                Text(comic.transcript)
             }
         }.padding()
-
+        
     }
 }
 

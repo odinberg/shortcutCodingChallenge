@@ -8,13 +8,12 @@
 import Foundation
 import SwiftUI
 
-// Made this so there isnt so much code on the buttons in ComicView
+// Made this so there isnt too much code on the buttons in ComicView
 
 // ButtonStyle for plus and minus buttons
 struct PlusAndMinusStyle: ButtonStyle {
     
     let title: String
-
     let background: Color
     
     func makeBody(configuration: Configuration) -> some View {
@@ -22,7 +21,7 @@ struct PlusAndMinusStyle: ButtonStyle {
             Text(title)
                 .font(.headline)
                 .padding()
-                .frame(width: 65, height: 33)
+                .frame(width: 80, height: 40)
         }
         .foregroundColor(.white)
         .background(background)

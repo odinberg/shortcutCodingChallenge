@@ -9,21 +9,10 @@ import SwiftUI
 
 @main
 struct shortcutCodingChallengeApp: App {
-    @StateObject private var vm = DataController()
+    @StateObject private var coreData = DataController()
     var body: some Scene {
         WindowGroup {
-            TabView{
-                ComicView()
-                    .tabItem {
-                        Label("Comics", systemImage: "book")
-                    }
-                FavoritesListView()
-                    .tabItem {
-                        Label("Favorites", systemImage: "star")
-                    }
-            }
-            .environment(\.managedObjectContext, vm.container.viewContext)
-            
+            ContentView()
         }
     }
 }
